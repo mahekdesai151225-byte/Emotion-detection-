@@ -1,0 +1,73 @@
+EMOTION DETECTION — FINAL PROJECT
+Mac + Windows • VS Code • Beginner setup
+
+WHAT IS INCLUDED
+- Full project (React/Vite frontend + FastAPI backend)
+- Existing trained emotion model and vectorizer
+- Emotion prediction for sadness, joy, love, anger, fear, surprise
+- Ambiguity analysis: sarcasm cues, negation, slang, intensity/emphasis, context dependence, ambiguity types
+- Prominent emotion result, confidence percentage/bar, emotion distribution
+- Dataset upload/preview for CSV, XLSX and XLS files
+
+FIRST-TIME SETUP — MAC
+1. Install Python 3 from https://www.python.org/downloads/macos/
+2. Install Node.js LTS from https://nodejs.org/
+3. Install VS Code from https://code.visualstudio.com/
+4. Extract this ZIP. In VS Code choose File → Open Folder and select the extracted `emotion-detection` folder.
+5. Open Terminal → New Terminal and run these commands one at a time:
+
+   cd backend
+   python3 -m venv venv
+   source venv/bin/activate
+   python3 -m pip install --upgrade pip
+   pip install -r requirements.txt
+   uvicorn app:app --reload
+
+6. Keep that terminal open. Open a SECOND terminal (Terminal → New Terminal) and run:
+
+   cd frontend
+   npm install
+   npm run dev
+
+7. Open the localhost URL shown by Vite, usually http://localhost:5173.
+
+DAILY STARTUP — MAC (after first-time setup)
+Terminal 1:
+   cd backend
+   source venv/bin/activate
+   uvicorn app:app --reload
+
+Terminal 2:
+   cd frontend
+   npm run dev
+
+WINDOWS QUICK SETUP
+In VS Code terminal, from the project root:
+   cd backend
+   py -m venv venv
+   venv\Scripts\activate
+   python -m pip install --upgrade pip
+   pip install -r requirements.txt
+   uvicorn app:app --reload
+
+Open a second terminal:
+   cd frontend
+   npm install
+   npm run dev
+
+IMPORTANT
+- Keep both terminals open while using the application.
+- The backend command is `uvicorn app:app --reload` from inside `backend`.
+- The frontend command is `npm run dev` from inside `frontend`.
+- Do not remove or rename files in `backend/model/`; they are the trained model files.
+- For future use, you do not need to repeat installs unless dependencies change.
+- To stop either server, press Ctrl+C in its terminal.
+
+TEST EXAMPLES
+- I am really happy today! — emotion and intensity
+- I am not happy. — negation
+- Yeah, great job... — potentially context-dependent/sarcastic cue
+- OMG I really REALLY love this! — slang/intensity
+
+NOTE
+Ambiguity checks are lightweight rule-based cues, not a definitive understanding of sarcasm or context. The trained model remains the project's original model.
